@@ -10,7 +10,7 @@ import { Todo } from '../../model/Todo';
   styleUrl: './todo-create-page.component.scss',
 })
 export default class TodoCreatePageComponent {
-  onSave(item: Todo) {
+  onSave(item: Partial<Todo>) {
     console.log('Creating', item);
   }
 }

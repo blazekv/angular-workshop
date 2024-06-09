@@ -1,5 +1,6 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import {
+  FormControl,
   FormGroup,
   NonNullableFormBuilder,
   ReactiveFormsModule,
@@ -9,7 +10,7 @@ import { Todo } from '../../model/Todo';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
-import {CustomValidators} from "../../validators/CustomValidators";
+import { CustomValidators } from '../../validators/CustomValidators';
 
 @Component({
   selector: 'eg-todo-form-reactive',
@@ -21,9 +22,11 @@ import {CustomValidators} from "../../validators/CustomValidators";
 export class TodoFormReactiveComponent {
   private fb: NonNullableFormBuilder = inject(NonNullableFormBuilder);
 
-  form: FormGroup = this.createForm();
+  form = this.createForm2();
 
-  @Output() save: EventEmitter<Todo> = new EventEmitter<Todo>();
+  @Output() save: EventEmitter<Partial<Todo>> = new EventEmitter<
+    Partial<Todo>
+  >();
 
   onSubmit() {
     if (this.form.valid) {
@@ -34,6 +37,15 @@ export class TodoFormReactiveComponent {
   private createForm() {
     return this.fb.group({
       name: ['', [Validators.required, CustomValidators.isNumber]],
+    });
+  }
+
+  private createForm2() {
+    return new FormGroup({
+      name: new FormControl<string>('', {
+        validators: [Validators.required, CustomValidators.isNumber],
+        nonNullable: true,
+      }),
     });
   }
 }
