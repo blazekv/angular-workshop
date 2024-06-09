@@ -1,6 +1,10 @@
 <h1 egHighlight>Todos</h1>
 
 <button [routerLink]="['create']" mat-button>Add</button>
+<eg-button>
+  <span class="icon">✔️</span>
+  <span class="text">Test</span>
+</eg-button>
 
 @if (todos$ | async; as todos) {
   @for (item of todos; track item.id) {

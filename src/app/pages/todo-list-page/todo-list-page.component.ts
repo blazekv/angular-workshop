@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Todo } from '../../model/Todo';
 import { AsyncPipe } from '@angular/common';
@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from '../../directives/highlight.directive';
 import { TodoService } from '../../services/todo.service';
 import { HugeComponentComponent } from '../../components/huge-component/huge-component.component';
+import { ButtonComponent } from '../../components/button/button.component';
 
 @Component({
   selector: 'eg-todo-list-page',
@@ -23,6 +24,7 @@ import { HugeComponentComponent } from '../../components/huge-component/huge-com
     FormsModule,
     HighlightDirective,
     HugeComponentComponent,
+    ButtonComponent,
   ],
   templateUrl: './todo-list-page.component.html',
   styleUrl: './todo-list-page.component.scss',
@@ -30,6 +32,8 @@ import { HugeComponentComponent } from '../../components/huge-component/huge-com
 export default class TodoListPageComponent {
   test = '';
   private todoService = inject(TodoService);
+
+  title = signal('a');
 
   todos$: Observable<Todo[]> = this.todoService.getBooks();
 
