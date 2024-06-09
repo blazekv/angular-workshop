@@ -27,7 +27,6 @@ import { TodoService } from '../../services/todo.service';
 })
 export default class TodoListPageComponent {
   test = '';
-
   private todoService = inject(TodoService);
 
   todos$: Observable<Todo[]> = this.todoService.getBooks();
