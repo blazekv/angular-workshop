@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 import { AsyncPipe, JsonPipe } from '@angular/common';
+import { LoggingService } from './services/logging/logging.service';
 
 @Component({
   selector: 'eg-root',
@@ -13,15 +14,16 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
 export class AppComponent implements OnInit {
   private router = inject(Router);
   private activatedRoute = inject(ActivatedRoute);
+  private loggingService = inject(LoggingService);
 
   title = 'Todo';
 
   data$ = this.activatedRoute.data;
 
   ngOnInit(): void {
-    console.log('Data', this.activatedRoute.snapshot.data);
+    this.loggingService.log('Data', this.activatedRoute.snapshot.data);
     this.router.events.subscribe((event) => {
-      console.log(event);
+      this.loggingService.log('Event', event);
     });
   }
 }
