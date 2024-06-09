@@ -9,6 +9,7 @@ import { Todo } from '../../model/Todo';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
+import {CustomValidators} from "../../validators/CustomValidators";
 
 @Component({
   selector: 'eg-todo-form-reactive',
@@ -32,7 +33,7 @@ export class TodoFormReactiveComponent {
 
   private createForm() {
     return this.fb.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, CustomValidators.isNumber]],
     });
   }
 }
