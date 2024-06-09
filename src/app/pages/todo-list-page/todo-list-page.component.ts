@@ -7,6 +7,7 @@ import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { MultiplicationPipe } from '../../pipes/multiplication.pipe';
 import { FormsModule } from '@angular/forms';
+import { HighlightDirective } from '../../directives/highlight.directive';
 
 @Component({
   selector: 'eg-todo-list-page',
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     RouterLink,
     MultiplicationPipe,
     FormsModule,
+    HighlightDirective,
   ],
   templateUrl: './todo-list-page.component.html',
   styleUrl: './todo-list-page.component.scss',
