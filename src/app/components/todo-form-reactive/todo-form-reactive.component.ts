@@ -1,7 +1,5 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import {
-  FormControl,
-  FormGroup,
   NonNullableFormBuilder,
   ReactiveFormsModule,
   Validators,
@@ -22,7 +20,7 @@ import { CustomValidators } from '../../validators/CustomValidators';
 export class TodoFormReactiveComponent {
   private fb: NonNullableFormBuilder = inject(NonNullableFormBuilder);
 
-  form = this.createForm2();
+  form = this.createForm();
 
   @Output() save: EventEmitter<Partial<Todo>> = new EventEmitter<
     Partial<Todo>
@@ -37,15 +35,6 @@ export class TodoFormReactiveComponent {
   private createForm() {
     return this.fb.group({
       name: ['', [Validators.required, CustomValidators.isNumber]],
-    });
-  }
-
-  private createForm2() {
-    return new FormGroup({
-      name: new FormControl<string>('', {
-        validators: [Validators.required, CustomValidators.isNumber],
-        nonNullable: true,
-      }),
     });
   }
 }
