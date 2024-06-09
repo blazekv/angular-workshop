@@ -9,6 +9,7 @@ import { MultiplicationPipe } from '../../pipes/multiplication.pipe';
 import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from '../../directives/highlight.directive';
 import { TodoService } from '../../services/todo.service';
+import { HugeComponentComponent } from '../../components/huge-component/huge-component.component';
 
 @Component({
   selector: 'eg-todo-list-page',
@@ -21,6 +22,7 @@ import { TodoService } from '../../services/todo.service';
     MultiplicationPipe,
     FormsModule,
     HighlightDirective,
+    HugeComponentComponent,
   ],
   templateUrl: './todo-list-page.component.html',
   styleUrl: './todo-list-page.component.scss',

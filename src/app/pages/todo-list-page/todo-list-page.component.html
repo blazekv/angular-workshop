@@ -11,3 +11,10 @@
 {{ test }}
 {{ 10 | multiplication }}
 {{ multiply(10, 2) }}
+
+<h2>Section with really heavy component</h2>
+@defer (on timer(5s)) {
+  <eg-huge-component></eg-huge-component>
+} @placeholder (minimum 1s) {
+  <div>Here will be huge component</div>
+}
