@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Component, inject } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Todo } from '../../model/Todo';
 import { AsyncPipe } from '@angular/common';
 import { TodoItemComponent } from '../../components/todo-item/todo-item.component';
@@ -8,6 +8,7 @@ import { RouterLink } from '@angular/router';
 import { MultiplicationPipe } from '../../pipes/multiplication.pipe';
 import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from '../../directives/highlight.directive';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'eg-todo-list-page',
@@ -27,7 +28,9 @@ import { HighlightDirective } from '../../directives/highlight.directive';
 export default class TodoListPageComponent {
   test = '';
 
-  todos$: Observable<Todo[]> = of([]);
+  private todoService = inject(TodoService);
+
+  todos$: Observable<Todo[]> = this.todoService.getBooks();
 
   multiply(value: number, multiplier: number) {
     console.log(value, multiplier);

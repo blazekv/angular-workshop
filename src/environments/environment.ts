@@ -1,1 +1,5 @@
-export const environment = {};
+export const environment = {
+  apiUrl: 'https://app.tabidoo.cloud/api/v2/apps/katalogknih-hh1n',
+  apiToken:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzMmViNmJjNy02NjdkLTQ1ZGMtODQ5Yy0xZGQ1Nzg3OWZlYjIiLCJ1bmlxdWVfbmFtZSI6ImFwaVRva2VuSWRfZDE2MjNkYjktNzVhZi00YWQwLTlmNzYtYzMxZmUzZjdmM2E0IiwicHVycG9zZSI6IkFQSVRva2VuIiwiYXBpVG9rZW5JZCI6ImQxNjIzZGI5LTc1YWYtNGFkMC05Zjc2LWMzMWZlM2Y3ZjNhNCIsIm5iZiI6MTcxNzkyMzA1NywiZXhwIjo0ODczNTk2NjU3LCJpYXQiOjE3MTc5MjMwNTd9.CpaFkMAcH-sBf7G9uwUQvuqa6_DJTykv3JVKzhVy4bM',
+};
